@@ -1,0 +1,411 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+html{
+    font-family: 'Lucida Sans';
+}
+
+#palavra{
+    letter-spacing: 10px;
+}
+
+.content{
+    position: absolute;
+    left: 2%;
+    top: 13%;
+}
+
+.tituloJogo{
+    position: absolute;
+    left: 2%;
+    top: 5%;
+    color: rgb(161, 64, 64);
+}
+
+.jogador{
+    display: inline;
+}
+
+.campos{
+    padding: 10px;
+    font-size: 15px;
+    width: 170px;
+}
+
+
+
+  #btnJogar{
+    color: #fff;
+    background-color: #218b3a;
+    border-color: #218b3a;
+    font-weight: bold;
+    text-transform: uppercase;
+    width: 100px;
+    height: 40px;
+    margin-left: 20px;
+  }
+
+button:hover:enabled{
+    cursor: pointer;
+}
+
+
+#btnJogar:hover:enabled{
+    background-color: #196b2c;
+  }
+
+.categoria select{
+    width: 100px;
+}
+
+#cmbTemas{
+    padding: 10px;
+    font-size: 14px;
+}
+
+#lblCategoria{
+    margin-left: 20px;
+}
+
+#btnRegras{
+    color: #fff;
+    background-color: #007bff;
+    border-color: #007bff;
+    font-weight: bold;
+    text-transform: uppercase;
+    width: 100px;
+    height: 40px;
+    margin-left: 20px;
+}
+
+#btnRegras:hover:enabled{
+    background-color: #0768d0;
+}
+
+h3{
+    color: rgb(161, 64, 64);
+}
+
+.itensLista{
+    line-height: 2.6;
+    width: 300px;
+    font-size: 14px;
+    list-style-type: none;
+}
+
+.containerInfos{
+    position: absolute;
+    left: 140%;
+    top: 10%;
+    display: flex;
+}
+
+
+.medalhas{
+    margin-top: 9px;
+    background-repeat: no-repeat;
+    width: 220px;
+    height: 28px;
+}
+
+.posicoes{
+    position: absolute;
+    top:16%;
+    left: 10%;
+}
+
+#primeiroLugar{
+    background-image: url("../imagens/ouro.png");
+
+}
+
+#segundoLugar{
+    background-image: url("../imagens/prata.png");
+}
+
+
+#terceiroLugar{
+    background-image: url("../imagens/bronze.png");
+}
+
+.ranking{
+    position: absolute;
+    left: 55%;
+} 
+
+.container-rodape{
+    position: fixed;
+    bottom: 0%;
+    box-sizing: border-box;
+    width: 100%;
+    background-color: steelblue;
+    height: 30px;
+    display: flex;
+    justify-content:center;
+    align-items: center;
+}
+
+.itens{
+    font-size: 17px;
+}
+
+.icones{
+    margin-left: 5px;
+    filter:invert(10%);
+    max-width: 80px;
+    max-height: 30px;
+}
+
+.instagram:hover{
+    cursor: pointer;
+    filter:invert(30%);
+}
+
+.email:hover{
+    cursor: pointer;
+    filter:invert(30%);
+}
+
+
+.JaSeiAPalavra{
+    position: absolute;
+    top: 750%;
+    left: 128%;
+    display: flex;
+}
+
+#lblJaSei{
+    width: 130px;
+    margin-top: 10px;
+}
+
+
+#inputjaSei{
+    text-transform: uppercase;
+}
+
+#btnjaSei:hover:enabled{
+    background-color: #0768d0;
+}
+
+#btnjaSei{
+    color: #fff;
+    background-color: #007bff;
+    border-color: #007bff;
+    font-weight: bold;
+    text-transform: uppercase;
+    width: 140px;
+    height: 40px; 
+    margin-left: 20px;
+}
+
+#palavra{
+    position: absolute;
+    top: 300%;
+    left: 5%;
+    font-size: 50px;
+}
+
+
+.containerTeclas{
+    position: absolute;
+    top: 900%;
+    left: 0%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 1400px;
+    justify-content:space-evenly;
+    align-items: stretch;
+}
+
+.keyboard{
+    font-family: monospace;
+    width: 120px;
+    height: 50px;
+    font-weight: bold;
+    color: black;
+    margin: 7px;
+}
+
+.keyboard1{
+    margin-left: 10px;
+}
+
+
+.keyboard2{
+    margin-left: 15px;
+}
+
+.keyboard3{
+    margin-left: 10px;
+}
+
+#varinha{
+    background-image: url("../imagens/magic.png");
+    background-size: 35px;
+    background-repeat: no-repeat;
+    background-position: center;
+    border-width: 0.1px;
+    border-color: gray;
+    border-radius: 3px;
+    border-style: solid;
+    color: transparent;
+}
+
+.keyboard:hover:enabled{
+    background-color: rgb(233, 227, 227) !important;
+}
+
+
+.modal {
+    display: none;
+    z-index: 1;
+    position: fixed;
+    padding-top: 100px;
+    padding-left: 300px; 
+    width: 100%; 
+    height: 100%;
+    background-color: rgba(0,0,0,0.4);
+  }
+
+  .modal-content {
+    font-size: 15px;
+    background-color: #f3e9e9;
+    padding: 20px;
+    border: 2px solid rgb(153, 31, 31);
+    border-radius: 10px;
+    width: 50%;
+  }
+
+  ul{
+    line-height: 30px;
+    list-style-type: none;
+  }
+
+  .close {
+    position: relative;
+    left: 95%;
+    color: #aaaaaa;
+    font-size: 28px;
+    font-weight: bold;
+  }
+
+  
+  .close:hover {
+    color: #000;
+    cursor: pointer;
+  }
+
+  #btnProximaPalavra{
+    position: absolute;
+    top: 745%;
+    left: 100%;
+    color: #fff;
+    background-color: #28a746fc;
+    border-color: #28a745;
+    font-weight: bold;
+    text-transform: uppercase;
+    width: 150px;
+    height: 40px;
+}
+
+#btnProximaPalavra:hover:enabled{
+    background-color: #218b3a;
+}
+
+
+#gameOver{
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 20px;
+    margin-bottom: 50px;
+  }
+
+
+  #msgGameOver{
+    padding-bottom: 60px;
+  }
+
+
+
+  .modalGameOver {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    padding-top: 250px;
+    display: none;
+    width: 100%; 
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4);
+  }
+  
+  .modal-content-GameOver {
+    text-align: center;
+    font-size: 15px;
+    background-color: #f3e9e9;
+    margin: auto;
+    padding: 10px;
+    border: 2px solid rgb(153, 31, 31);
+    border-radius: 10px;
+    width: 33%;
+    height: 30%;
+  }
+
+  #btnNovoJogo{
+    color: #fff;
+    background-color: #28a746fc;
+    border-color: #28a745;
+    font-weight: bold;
+    text-transform: uppercase;
+    width: 150px;
+    height: 40px;
+    margin: 10px;
+}
+
+#btnNovoJogo:hover:enabled{
+    background-color: #218b3a;
+}
+
+#alteraJogador{
+    color: #fff;
+    background-color: #007bff;
+    border-color: #007bff;
+    font-weight: bold;
+    text-transform: uppercase;
+    width: 150px;
+    height: 40px;
+}
+
+#alteraJogador:hover:enabled{
+    background-color: #0768d0;
+}
+
+/*condição para estar em mobile  @media(max-width: 980px */
+@media(orientation: landscape) and (max-width: 980px){
+    .modal-content-GameOver{
+        height: 40%;
+    }
+    .containerTeclas{
+        top: 650%;
+    }
+    .JaSeiAPalavra{
+        top: 500%;
+    }
+    #btnProximaPalavra{
+        top: 510%;
+        left: 100%;
+    }
+    .content{
+        top: 20%;
+    }
+}
+
+
+
+
+
+

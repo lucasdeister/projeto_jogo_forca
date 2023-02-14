@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <title>Jogo da forca</title>
+        <meta charset="utf-8">
+        <meta name="author" content="Lucas">
+        <meta name="description" content="descrição">
+        <meta name="keywords" content="jogo forca">
+        <link href="../css/index.css" type="text/css" rel="stylesheet">
+        <link rel="shortcut icon" href="#">
+    </head>
+    <body>
+        <header class="header">
+            <h2 class="tituloJogo">Jogo da forca</h2>
+        </header>
+        <section id="myModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <ul>
+                    <li>Escolha uma letra que ache que contenha na palavra secreta</li>
+                    <li>Se acertar a letra, esta será completada nos espaços respectivos</li>
+                    <li>Caso não existam mais espaços a serem completados, você ganha</li>
+                    <li>Você terá 5 chances para acertar</li>
+                    <li>A cada erro perderá uma chance, se chegar a zero você perde</li>
+                    <li>Se souber a palavra, digite esta no campo "Já sei a palavra" e confirme<br>
+                    Se estiver correta, quanto mais espaços estiverem em branco, mais pontos você irá ganhar,
+                    no entanto se estiver errada você perderá independente do número de chances restantes
+                    </li>
+                    <li>A varinha mágica revelará uma ou mais letras restantes, a cada três palavras acertadas,
+                    você irá ganhar uma nova</li>
+                    <li>Dependendo da categoria selecionada, algumas teclas podem vir desabilitadas,
+                    pois o tema pode não ter palavras com esta letra</li>
+                </ul>
+            </div>
+        </section>
+        <section id="myModalGameOver" class="modalGameOver">
+            <div class="modal-content-GameOver">
+            <form>
+                <h3 id="gameOver">Game Over</h3>
+                <p id="msgGameOver"></p>
+                <button id="btnNovoJogo" type="button" onclick="buscarNovaPalavra()">Novo jogo</button>
+                <button id="alteraJogador" type="button" onclick="alterarJogador()">Alterar Jogador</button>
+            </form>
+            </div>
+        </section>
+        <main class="content">              
+            <section class="jogador">
+                <label id="nome">Nome:</label>
+                <input id="inputNome" class="campos" type="text" maxlength="13">
+                <label id="lblCategoria">Categoria:</label>
+                <select name="temas" id="cmbTemas" onchange="buscarNovaPalavra()">
+                    <option value="Fruta">Fruta</option>
+                    <option value="Nome">Nome</option>
+                    <option value="Time">Time</option>
+                    <option value="Objeto">Objeto</option>
+                    <option value="País">País</option>
+                    <option value="Cor">Cor</option>
+                    <option value="Comida">Comida</option>
+                    <option value="Animal">Animal</option>
+                    <option value="Lugar">Lugar</option>
+                </select>
+                <button id="btnJogar" type="button" onclick="jogar()">Jogar</button>
+                <button id="btnRegras" type="button" onclick="exibirRegras()">Regras</button>
+            </section>
+            <section class="containerInfos">
+                <section class="dados">
+                    <form>
+                        <h3>Dados</h3>
+                        <ul class="itensLista">
+                            <li><label>Pontuação: <label id="qtdPontos">0</label>pts</label></li>
+                            <li><label>Chances: <label id="qtdChances">5</label></label></li>
+                            <li><label>Varinhas: <label id="qtdVarinhas">1</label></label></li>
+                        </ul>
+                    </form>
+                </section>
+                <section class="ranking">
+                    <form>
+                        <h3>Maiores pontuações</h3>
+                        <ol class="itensLista">
+                            <li class="medalhas" id="primeiroLugar"></li>
+                            <li class="medalhas" id="segundoLugar"></li>
+                            <li class="medalhas" id="terceiroLugar"></li>
+                        </ol>
+                        <ol class="itensLista posicoes">
+                            <li id="posicao1">1º xxx 0 pts</li>
+                            <li id="posicao2">2º xxx 0 pts</li>
+                            <li id="posicao3">3º xxx 0 pts</li>
+                        </ol>
+                    </form>
+                </section>
+            </section>
+            <section>
+                <span id="palavra"></span>
+            </section>
+            <section class="containerTeclas">
+                <form>
+                    <div id="teclas" onclick="escreverNaTelaColorindoBotoes(palavraSorteada, vetTracos,
+                        musicaAcertouLetra, musicaAcertouPalavra, musicaPerdeuJogo, musicaErrouLetra)" class="containerTeclas">
+                        <button id="Q" class="keyboard keyboard1" type="button">Q</button>
+                        <button id="W" class="keyboard keyboard1" type="button">W</button>
+                        <button id="E" class="keyboard keyboard1" type="button">E</button>
+                        <button id="R" class="keyboard keyboard1" type="button">R</button>
+                        <button id="T" class="keyboard keyboard1" type="button">T</button>
+                        <button id="Y" class="keyboard keyboard1" type="button">Y</button>
+                        <button id="U" class="keyboard keyboard1" type="button">U</button>
+                        <button id="I" class="keyboard keyboard1" type="button">I</button>
+                        <button id="O" class="keyboard keyboard1" type="button">O</button>
+                        <button id="P" class="keyboard keyboard1" type="button">P</button>
+                        <button id="A" class="keyboard keyboard2" type="button">A</button>
+                        <button id="S" class="keyboard keyboard2" type="button">S</button>
+                        <button id="D" class="keyboard keyboard2" type="button">D</button>
+                        <button id="F" class="keyboard keyboard2" type="button">F</button>
+                        <button id="G" class="keyboard keyboard2" type="button">G</button>
+                        <button id="H" class="keyboard keyboard2" type="button">H</button>
+                        <button id="J" class="keyboard keyboard2" type="button">J</button>
+                        <button id="K" class="keyboard keyboard2" type="button">K</button>
+                        <button id="L" class="keyboard keyboard2" type="button">L</button>
+                        <button id="Z" class="keyboard keyboard3" type="button">Z</button>
+                        <button id="X" class="keyboard keyboard3" type="button">X</button>
+                        <button id="C" class="keyboard keyboard3" type="button">C</button>
+                        <button id="V" class="keyboard keyboard3" type="button">V</button>
+                        <button id="B" class="keyboard keyboard3" type="button">B</button>
+                        <button id="N" class="keyboard keyboard3" type="button">N</button>
+                        <button id="M" class="keyboard keyboard3" type="button">M</button>
+                        <button id="varinha" class="keyboard keyboard3" onclick="botaoVarinha(palavraSorteada, musicaVarinha)" type="button"></button>
+                    </div>
+            </section>
+            <section class="JaSeiAPalavra">
+                <form>
+                    <label id="lblJaSei" for="jspalavra">Já sei a palavra:</label>
+                    <input id="inputjaSei" class="campos" type="text" name="jspalavra">
+                    <button id="btnjaSei" type="button" onclick="validarPalavraDigitada(palavraSorteada, musicaPerdeuJogo, musicaAcertouPalavra)">Confirmar</button>
+                </form>
+            </section>
+            <section class="botaoNovaPalavra">
+                <form>
+                    <button id="btnProximaPalavra" onclick="buscarNovaPalavra()" type="button">Próxima palavra</button>
+                </form>
+            </section>
+        </main>
+        <footer>
+            <div class="container-rodape">
+                <div class="itens">Design by - Lucas Deister</div>
+                <section class="icones">
+                    <a class="instagram" href="https://www.instagram.com/lucasdeister7/">
+                    <img src="..\imagens\icons8-instagram-32.png" alt="instagram"></a>
+                    <a class="email" href="mailto:lucasdeister7@hotmail.com">
+                    <img src="..\imagens\icons8-mensagem-32.png" alt="email"></a>  
+                </section>
+            </div>
+        </footer>
+        <script type="text/javascript" src="../javascript/index.js"></script>
+    </body>
+</html>
+<!-- 
+    verificar a possibilidade de forçar carregamento da página em modo retrato caso seja mobile
+-->
